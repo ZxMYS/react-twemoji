@@ -1,13 +1,13 @@
 {
   "name": "react-twemoji",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A React wrapper for Twemoji",
   "keyword": [
     "react",
     "twemoji"
   ],
   "author": "Zx.MYS <manyoushen@gmail.com>",
-  "main": "lib/index.js",
+  "main": "lib/Twemoji/index.js",
   "engines": {
     "node": ">=5.0 <6",
     "npm": ">=3.3 <4"

@@ -10,7 +10,7 @@ npm install react-twemoji
 
 ## Usage
 
-Simple use it to wrap your emotional content.
+Simply use it to wrap your emotional content.
 
 ```jsx
 import Twemoji from 'react-twemoji';
