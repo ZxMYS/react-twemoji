@@ -1,0 +1,32 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": ["airbnb/base", "eslint:recommended", "plugin:react/recommended"],
+  "globals": {
+    "expect": false
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "react"
+  ],
+  "root": true,
+  "rules": {
+    "comma-dangle": 0,
+    "curly": 2,
+    "quotes": [2, "single"],
+    "semi": [2, "always"]
+  },
+  "settings": {
+  }
+}
