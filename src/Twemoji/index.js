@@ -1,3 +1,4 @@
+import isEqual from 'lodash/isEqual';
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import twemoji from 'twemoji';
@@ -12,8 +13,10 @@ export default class Twemoji extends React.Component {
     twemoji.parse(node);
   }
 
-  componentDidUpdate() {
-    this._parseTwemoji();
+  componentDidUpdate(prevProps) {
+    if (!isEqual(this.props, prevProps)) {
+      this._parseTwemoji();
+    }
   }
 
   componentDidMount() {
