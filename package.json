@@ -9,7 +9,7 @@
   "author": "Zx.MYS <manyoushen@gmail.com>",
   "main": "lib/Twemoji/index.js",
   "engines": {
-    "node": ">=5.0 <6",
+    "node": ">=5.0 <8",
     "npm": ">=3.3 <4"
   },
   "repository": {
