@@ -5,12 +5,13 @@ import twemoji from 'twemoji';
 
 export default class Twemoji extends React.Component {
   static propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    options: PropTypes.object
   }
 
   _parseTwemoji() {
     const node = ReactDOM.findDOMNode(this);
-    twemoji.parse(node);
+    twemoji.parse(node, this.props.options);
   }
 
   componentDidUpdate(prevProps) {
@@ -25,6 +26,7 @@ export default class Twemoji extends React.Component {
 
   render() {
     const { children, ...other } = this.props;
+    delete other.options;
     return <div {...other}>{children}</div>;
   }
 }
