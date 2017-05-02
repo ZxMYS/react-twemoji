@@ -50,15 +50,18 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
     "pretty-error": "^2.0.0",
-    "react-addons-test-utils": "^15.0.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "webpack": "^1.12.15",
     "webpack-dev-middleware": "^1.6.1"
   },
   "dependencies": {
     "lodash": "^4.16.2",
     "prop-types": "^15.5.8",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
     "twemoji": "^2.0.5"
+  },
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   }
 }
