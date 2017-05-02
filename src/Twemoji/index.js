@@ -25,7 +25,8 @@ export default class Twemoji extends React.Component {
   }
 
   render() {
-    const { options, children, ...other } = this.props;
+    const { children, ...other } = this.props;
+    delete other.options;
     return <div {...other}>{children}</div>;
   }
 }
