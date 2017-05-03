@@ -10,12 +10,12 @@ npm install react-twemoji
 
 ## Usage
 
-Simply use it to wrap your emotional content.
+Simply use it to wrap your emotional content. Set `options` prop to pass options to `twemoji.parse`.
 
 ```jsx
 import Twemoji from 'react-twemoji';
 
-<Twemoji>
+<Twemoji options={{ className: 'twemoji' }}>
   <p>😂<span>😉</span></p>
 </Twemoji>
 ```
@@ -25,9 +25,9 @@ It outputs following HTML to DOM,
 ```html
 <div>
   <p>
-    <img draggable="false" class="emoji" alt="😂" src="https://twemoji.maxcdn.com/2/72x72/1f602.png">
+    <img draggable="false" class="twemoji" alt="😂" src="https://twemoji.maxcdn.com/2/72x72/1f602.png">
     <span>
-      <img draggable="false" class="emoji" alt="😉" src="https://twemoji.maxcdn.com/2/72x72/1f609.png">
+      <img draggable="false" class="twemoji" alt="😉" src="https://twemoji.maxcdn.com/2/72x72/1f609.png">
     </span>
   </p>
 </div>
