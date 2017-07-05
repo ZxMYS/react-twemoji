@@ -9,8 +9,8 @@
   "author": "Zx.MYS <manyoushen@gmail.com>",
   "main": "lib/Twemoji/index.js",
   "engines": {
-    "node": ">=5.0 <8",
-    "npm": ">=3.3 <4"
+    "node": ">=5.0",
+    "npm": ">=3.3"
   },
   "repository": {
     "type": "git",
