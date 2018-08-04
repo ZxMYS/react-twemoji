@@ -5,7 +5,7 @@ It calls twemoji.parse() to convert emoji characters to Twemoji images.
 ## Install
 
 ```shell
-npm install react-twemoji
+yarn install react-twemoji
 ```
 
 ## Usage
@@ -33,10 +33,17 @@ It outputs following HTML to DOM,
 </div>
 ```
 
+## Props
+
+| Name             | Type          | Default    | Description|
+|:----             |:----          |:----       |:----|
+| `options`        | `Object`      | `{}`       | `twemoji.parse` options |
+| `noWrapper`      | `Boolean`     | `false`    | When set to `true`, Twemoji will not render a wrapping `div` to contain  children |
+
 ### Run example
 
 ```sh
-npm run example
+yarn run example
 ```
 then open http://localhost:8080/
 
@@ -44,17 +51,17 @@ then open http://localhost:8080/
 ### Lint
 
 ```sh
-npm run lint
+yarn run lint
 ```
 
 ### Test
 
 ```sh
-npm run test
+yarn run test
 ```
 
 ### Build
 
 ```sh
-npm run build
+yarn run build
 ```
