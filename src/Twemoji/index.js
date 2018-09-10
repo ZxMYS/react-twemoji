@@ -56,7 +56,7 @@ export default class Twemoji extends React.Component {
         </>);
     } else {
       delete other.options;
-      return <div ref={this.rootRef} {...other}>{children}</div>;
+      return <span ref={this.rootRef} {...other}>{children}</span>;
     }
   }
 }
