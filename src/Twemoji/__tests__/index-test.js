@@ -10,7 +10,7 @@ function renderTwemoji() {
   return TestUtils.renderIntoDocument(<Twemoji><div>😉<a>😊</a></div></Twemoji>);
 }
 function renderTwemojiWithNoWrapper() {
-  return TestUtils.renderIntoDocument(<div><Twemoji noWrapper={true}><p>😉<a>😊</a></p></Twemoji></div>);
+  return TestUtils.renderIntoDocument(<div><Twemoji noWrapper={true}>😉<p>😉<a>😊</a></p></Twemoji></div>);
 }
 
 suite('Twemoji', () => {

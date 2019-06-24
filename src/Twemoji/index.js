@@ -49,6 +49,11 @@ export default class Twemoji extends React.Component {
         <>
         {
           React.Children.map(children, (c, i) => {
+            if (typeof c === 'string') {
+              // eslint-disable-next-line no-console
+              console.warn(`Twemoji can't parse string child when noWrapper is set. Skipping child "${c}"`);
+              return c;
+            }
             this.childrenRefs[i] = this.childrenRefs[i] || React.createRef();
             return React.cloneElement(c, { ref: this.childrenRefs[i] });
           })
