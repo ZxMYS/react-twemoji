@@ -44,7 +44,8 @@ It outputs following HTML to DOM,
 | Name             | Type          | Default    | Description|
 |:----             |:----          |:----       |:----|
 | `options`        | `Object`      | `{}`       | `twemoji.parse` options |
-| `noWrapper`      | `Boolean`     | `false`    | When it is `true`, `Twemoji` will not render a wrapping `div` to contain children. Note that since `twemoji.parse` needs an DOM element reference, any direct pure text child of `Twemoji` is not parsed when `noWrapper` is `true`. E.g. `foo` in `<Twemoji noWrapper={true}>foo<p>bar</p></Twmoji>` is not parsed. |
+| `noWrapper`      | `Boolean`     | `false`    | When it is `true`, `Twemoji` will not render a wrapping element (with `tag`) to contain children. Note that since `twemoji.parse` needs an DOM element reference, any direct pure text child of `Twemoji` is not parsed when `noWrapper` is `true`. E.g. `foo` in `<Twemoji noWrapper={true}>foo<p>bar</p></Twmoji>` is not parsed. |
+| `tag`            | `string`      | `div`      | The tag of the wrapping element. This option is ignored when `noWrapper` is `true`. |
 
 ### Run example
 

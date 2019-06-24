@@ -11,6 +11,9 @@ export default class App extends React.Component {
         <Twemoji noWrapper={true} options={{ className: 'twemoji' }}>
           <p>😂😅</p><p>😍😉</p>
         </Twemoji>
+        <Twemoji tag='p' options={{ className: 'twemoji' }}>
+          😂😅<br/>😍😉
+        </Twemoji>
       </div>
     );
   }

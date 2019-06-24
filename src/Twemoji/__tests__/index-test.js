@@ -9,8 +9,13 @@ import Twemoji from '..';
 function renderTwemoji() {
   return TestUtils.renderIntoDocument(<Twemoji><div>😉<a>😊</a></div></Twemoji>);
 }
+
 function renderTwemojiWithNoWrapper() {
   return TestUtils.renderIntoDocument(<div><Twemoji noWrapper={true}>😉<p>😉<a>😊</a></p></Twemoji></div>);
+}
+
+function renderTwemojiWithSpan() {
+  return TestUtils.renderIntoDocument(<Twemoji tag='span'><a>😉😊</a></Twemoji>);
 }
 
 suite('Twemoji', () => {
@@ -18,6 +23,12 @@ suite('Twemoji', () => {
     const rendered = renderTwemoji();
     const node = ReactDOM.findDOMNode(rendered);  // eslint-disable-line react/no-find-dom-node
     assert.equal(node.querySelectorAll('img').length, 2);
+  });
+
+  test('should render with custom tag when it\'s set', () => {
+    const rendered = renderTwemojiWithSpan();
+    const node = ReactDOM.findDOMNode(rendered);  // eslint-disable-line react/no-find-dom-node
+    assert.equal(node.tagName, 'SPAN');
   });
 
   test('should parse again when children is updated', () => {

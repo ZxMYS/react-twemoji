@@ -7,7 +7,12 @@ export default class Twemoji extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     noWrapper: PropTypes.bool,
-    options: PropTypes.object
+    options: PropTypes.object,
+    tag: PropTypes.string
+  }
+
+  static defaultProps = {
+    tag: 'div'
   }
 
   constructor(props) {
@@ -43,7 +48,7 @@ export default class Twemoji extends React.Component {
   }
 
   render() {
-    const { children, noWrapper, ...other } = this.props;
+    const { children, noWrapper, tag,  ...other } = this.props;
     if (noWrapper) {
       return (
         <>
@@ -61,7 +66,7 @@ export default class Twemoji extends React.Component {
         </>);
     } else {
       delete other.options;
-      return <div ref={this.rootRef} {...other}>{children}</div>;
+      return React.createElement(tag, { ref: this.rootRef, ...other }, children);
     }
   }
 }
