@@ -1,4 +1,4 @@
-import isEqual from 'lodash/isEqual';
+import isEqual from 'lodash.isequal';
 import React from 'react';
 import PropTypes from 'prop-types';
 import twemoji from 'twemoji';
