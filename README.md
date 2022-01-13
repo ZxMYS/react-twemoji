@@ -16,7 +16,7 @@ npm install react-twemoji
 
 ## Usage
 
-Simply use it to wrap your emotional content. Set `options` prop to pass options to `twemoji.parse`.
+Simply use it to wrap your emotional content. Set the `options` prop to pass options to `twemoji.parse`.
 
 ```jsx
 import Twemoji from 'react-twemoji';
@@ -26,7 +26,7 @@ import Twemoji from 'react-twemoji';
 </Twemoji>
 ```
 
-It outputs following HTML to DOM,
+It outputs the following HTML to DOM,
 
 ```html
 <div>
@@ -44,7 +44,7 @@ It outputs following HTML to DOM,
 | Name             | Type          | Default     | Description|
 |:----             |:----          |:----        |:----|
 | `options`        | `object`      | `undefined` | `twemoji.parse` options. |
-| `noWrapper`      | `boolean`     | `false`     | When it is `true`, `Twemoji` will not render a wrapping element (with `tag`) to contain children. Note that since `twemoji.parse` needs an DOM element reference, any direct pure text child of `Twemoji` is not parsed when `noWrapper` is `true`. E.g. `foo` in `<Twemoji noWrapper={true}>foo<p>bar</p></Twmoji>` is not parsed. |
+| `noWrapper`      | `boolean`     | `false`     | When it is `true`, `Twemoji` will not render a wrapping element (with `tag`) to contain its children. Note that since `twemoji.parse` needs a DOM element reference, any direct pure text child of `Twemoji` is not parsed when `noWrapper` is `true`. E.g. `foo` in `<Twemoji noWrapper={true}>foo<p>bar</p></Twemoji>` is not parsed. |
 | `tag`            | `string`      | `div`       | The tag of the wrapping element. This option is ignored when `noWrapper` is `true`. |
 
 ### Run example
