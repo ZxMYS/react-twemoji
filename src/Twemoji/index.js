@@ -29,11 +29,17 @@ export default class Twemoji extends React.Component {
     if (noWrapper) {
       for (const i in this.childrenRefs) {
         const node = this.childrenRefs[i].current;
-        twemoji.parse(node, this.props.options);
+        twemoji.parse(node, {
+          base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/',
+          ...this.props.options,
+        });
       }
     } else {
       const node = this.rootRef.current;
-      twemoji.parse(node, this.props.options);
+      twemoji.parse(node, {
+        base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/',
+        ...this.props.options,
+      });
     }
   }
 
@@ -48,25 +54,30 @@ export default class Twemoji extends React.Component {
   }
 
   render() {
-    const { children, noWrapper, tag,  ...other } = this.props;
+    const { children, noWrapper, tag, ...other } = this.props;
     if (noWrapper) {
       return (
         <>
-        {
-          React.Children.map(children, (c, i) => {
+          {React.Children.map(children, (c, i) => {
             if (typeof c === 'string') {
               // eslint-disable-next-line no-console
-              console.warn(`Twemoji can't parse string child when noWrapper is set. Skipping child "${c}"`);
+              console.warn(
+                `Twemoji can't parse string child when noWrapper is set. Skipping child '${c}'`
+              );
               return c;
             }
             this.childrenRefs[i] = this.childrenRefs[i] || React.createRef();
             return React.cloneElement(c, { ref: this.childrenRefs[i] });
-          })
-        }
-        </>);
+          })}
+        </>
+      );
     } else {
       delete other.options;
-      return React.createElement(tag, { ref: this.rootRef, ...other }, children);
+      return React.createElement(
+        tag,
+        { ref: this.rootRef, ...other },
+        children
+      );
     }
   }
 }
