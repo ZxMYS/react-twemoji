@@ -1,5 +1,5 @@
 # react-twemoji
-A simple [React](https://facebook.github.io/react/) wrapper for [Twemoji](https://github.com/twitter/twemoji).
+A simple [React](https://facebook.github.io/react/) wrapper for [Twemoji](https://github.com/jdecked/twemoji).
 It calls twemoji.parse() to convert emoji characters to Twemoji images.
 
 ## Install
@@ -31,9 +31,9 @@ It outputs the following HTML to DOM,
 ```html
 <div>
   <p>
-    <img draggable="false" class="twemoji" alt="😂" src="https://twemoji.maxcdn.com/2/72x72/1f602.png">
+    <img draggable="false" class="twemoji" alt="😂" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/72x72/1f602.png">
     <span>
-      <img draggable="false" class="twemoji" alt="😉" src="https://twemoji.maxcdn.com/2/72x72/1f609.png">
+      <img draggable="false" class="twemoji" alt="😉" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/72x72/1f609.png">
     </span>
   </p>
 </div>

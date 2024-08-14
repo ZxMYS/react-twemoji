@@ -1,6 +1,6 @@
 {
   "name": "react-twemoji",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A React wrapper for Twemoji",
   "keyword": [
     "emoji",
@@ -63,7 +63,7 @@
   "dependencies": {
     "lodash.isequal": "^4.5.0",
     "prop-types": "^15.7.2",
-    "twemoji": "14.0.1"
+    "@twemoji/api": "15.1.0"
   },
   "peerDependencies": {
     "react": ">=16.4.2"

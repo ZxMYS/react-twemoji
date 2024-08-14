@@ -1,7 +1,7 @@
 import isEqual from 'lodash.isequal';
 import React from 'react';
 import PropTypes from 'prop-types';
-import twemoji from 'twemoji';
+import twemoji from '@twemoji/api';
 
 export default class Twemoji extends React.Component {
   static propTypes = {
