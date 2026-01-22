@@ -1,67 +1,66 @@
-import isEqual from 'lodash.isequal';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { dequal } from 'dequal/lite';
 import twemoji from '@twemoji/api';
 
-/**
- * @typedef {Object} TwemojiProps
- * @property {React.ReactNode} [children]
- * @property {boolean} [noWrapper=false]
- * @property {Object} [options] - Twemoji parsing options
- * @property {string} [tag='div'] - The HTML tag to use for the wrapper
- */
+const Twemoji = ({
+  children,
+  noWrapper = false,
+  options,
+  tag: Tag = 'div',
+  ...other
+}) => {
+  const rootRef = useRef(null);
+  const childrenRefs = useRef([]);
+  const prevOptions = useRef(options);
 
-export default class Twemoji extends React.Component {
-  static defaultProps = {
-    tag: 'div'
-  }
-
-  constructor(props) {
-    super(props);
-    this.childrenRefs = {};
-    this.rootRef = React.createRef();
-  }
-
-  _parseTwemoji() {
-    const { noWrapper, options } = this.props;
+  // Helper to run the twemoji parsing logic
+  const parseTwemoji = () => {
     if (noWrapper) {
-      for (const i in this.childrenRefs) {
-        const node = this.childrenRefs[i].current;
+      childrenRefs.current.forEach((node) => {
         if (node) twemoji.parse(node, options);
-      }
-    } else {
-      const node = this.rootRef.current;
-      if (node) twemoji.parse(node, options);
+      });
+    } else if (rootRef.current) {
+      twemoji.parse(rootRef.current, options);
     }
-  }
+  };
 
-  componentDidUpdate(prevProps) {
-    if (!isEqual(this.props, prevProps)) {
-      this._parseTwemoji();
+  useEffect(() => {
+    // Deep check options: if they are actually the same,
+    // we only re-parse if the children/wrapper changed.
+    const optionsChanged = !dequal(prevOptions.current, options);
+
+    parseTwemoji();
+
+    if (optionsChanged) {
+      prevOptions.current = options;
     }
-  }
+  }, [children, noWrapper, options]);
 
-  componentDidMount() {
-    this._parseTwemoji();
-  }
-
-  render() {
-    const { children, noWrapper, tag, options, ...other } = this.props;
-
-    if (noWrapper) {
-      return (
-        <>
-          {React.Children.map(children, (c, i) => {
-            if (typeof c === 'string') {
-              console.warn(`Twemoji can't parse string child when noWrapper is set. Skipping child "${c}"`);
-              return c;
+  // Handle the "noWrapper" logic: we must attach refs to children manually
+  if (noWrapper) {
+    return (
+      <>
+        {React.Children.map(children, (child, i) => {
+          if (typeof child === 'string') {
+            if (process.env.NODE_ENV !== 'production') {
+              console.warn(`Twemoji can't parse string child when noWrapper is set. Skipping child "${child}"`);
             }
-            this.childrenRefs[i] = this.childrenRefs[i] || React.createRef();
-            return React.cloneElement(c, { ref: this.childrenRefs[i] });
-          })}
-        </>
-      );
-    }
+            return child;
+          }
 
-    return React.createElement(tag, { ref: this.rootRef, ...other }, children);
+          return React.cloneElement(child, {
+            ref: (el) => (childrenRefs.current[i] = el),
+          });
+        })}
+      </>
+    );
   }
-}
+
+  return (
+    <Tag ref={rootRef} {...other}>
+      {children}
+    </Tag>
+  );
+};
+
+export default Twemoji;
