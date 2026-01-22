@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 import { assert } from 'chai';
-import React from 'react';
+import React from 'react';  // eslint-disable-line no-unused-vars
 import { createRoot } from 'react-dom/client';
 import Twemoji from '..';
 

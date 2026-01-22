@@ -1,6 +1,6 @@
 {
   "name": "react-twemoji",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "A React wrapper for Twemoji",
   "keyword": [
     "emoji",
@@ -35,10 +35,11 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/eslint-parser": "^7.28.6",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.2",
+    "@babel/preset-react": "^7.28.5",
+    "@types/react-dom": "^19.2.3",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
@@ -54,19 +55,18 @@
     "karma-webpack": "^5.0.1",
     "mocha": "^6.1.4",
     "pretty-error": "^2.0.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-middleware": "^5.3.4"
   },
   "dependencies": {
     "@twemoji/api": "17.0.2",
-    "@types/react-dom": "^19.2.3",
-    "lodash.isequal": "^4.5.0",
-    "prop-types": "^15.7.2",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "lodash.isequal": "^4.5.0"
   },
   "peerDependencies": {
-    "react": ">=16.4.2"
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
   }
 }
