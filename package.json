@@ -63,7 +63,7 @@
   "dependencies": {
     "lodash.isequal": "^4.5.0",
     "prop-types": "^15.7.2",
-    "@twemoji/api": "15.1.0"
+    "@twemoji/api": "17.0.2"
   },
   "peerDependencies": {
     "react": ">=16.4.2"
