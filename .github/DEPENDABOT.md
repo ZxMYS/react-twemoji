@@ -1,10 +1,9 @@
 # Dependabot automation
 
 Dependabot checks npm/Yarn dependencies and GitHub Actions weekly. It targets the
-repository default branch, currently `master`. Major updates are still opened for
-manual review. The automation only approves and enables squash auto-merge for
-verified Dependabot patch/minor updates (the highest semver change in a grouped
-PR determines eligibility). Unknown update types also require manual review.
+repository default branch, currently `master`. The automation approves and enables
+squash auto-merge for verified Dependabot patch, minor, and major updates after
+CI passes. Unknown update types require manual review.
 
 ## One-time GitHub repository settings
 
@@ -42,4 +41,4 @@ exact commit, and matches that commit before requesting auto-merge. No PAT neede
 
 After these files land on master and settings are ready, new or updated Dependabot
 PRs trigger automation. For an existing PR, close/reopen it or ask Dependabot to
-rebase it to trigger another run. Existing major PRs remain manual.
+rebase it to trigger another run. Major updates follow the same CI gate as patch/minor updates.
