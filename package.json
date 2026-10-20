@@ -58,7 +58,7 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "webpack": "^5.104.1",
-    "webpack-cli": "^6.0.1",
+    "webpack-cli": "^7.2.3",
     "webpack-dev-middleware": "^7.4.5"
   },
   "dependencies": {
