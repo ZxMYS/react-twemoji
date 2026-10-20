@@ -55,8 +55,8 @@
     "karma-webpack": "^5.0.1",
     "mocha": "^6.1.4",
     "pretty-error": "^2.0.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-middleware": "^7.4.5"
