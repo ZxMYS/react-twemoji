@@ -978,18 +978,18 @@
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.2.tgz#821f8442f4175d8f0467b9daf26e3a18e2d02af2"
 
-"@twemoji/api@17.0.2":
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/@twemoji/api/-/api-17.0.2.tgz#cd1bf3d74c494fa48733382904cefe81f60e63d0"
+"@twemoji/api@17.0.3":
+  version "17.0.3"
+  resolved "https://registry.yarnpkg.com/@twemoji/api/-/api-17.0.3.tgz#1c592a705c8550396138c0b26b83a8ea2777f5fc"
   dependencies:
-    "@twemoji/parser" "17.0.1"
+    "@twemoji/parser" "17.0.2"
     fs-extra "^8.0.1"
     jsonfile "^5.0.0"
     universalify "^0.1.2"
 
-"@twemoji/parser@17.0.1":
-  version "17.0.1"
-  resolved "https://registry.yarnpkg.com/@twemoji/parser/-/parser-17.0.1.tgz#5f55fa94fcd5111af55b980b8d6adf724405966f"
+"@twemoji/parser@17.0.2":
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/@twemoji/parser/-/parser-17.0.2.tgz#c95ef324565eaa402a231eced895614e29c2b483"
 
 "@types/cors@^2.8.12":
   version "2.8.19"

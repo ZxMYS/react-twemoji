@@ -62,7 +62,7 @@
     "webpack-dev-middleware": "^7.4.5"
   },
   "dependencies": {
-    "@twemoji/api": "17.0.2",
+    "@twemoji/api": "17.0.3",
     "dequal": "^2.0.3"
   },
   "peerDependencies": {
