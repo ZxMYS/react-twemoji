@@ -1,0 +1,66 @@
+name: Dependabot auto-merge
+
+# This privileged workflow reads metadata only. Never check out or execute PR code here.
+on:
+  pull_request_target:
+    branches: [master]
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions: {}
+
+concurrency:
+  group: dependabot-auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  auto-merge:
+    if: >-
+      github.repository == 'ZxMYS/react-twemoji' &&
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.event.pull_request.head.ref, 'dependabot/') &&
+      !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      actions: read
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Verify Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Wait for CI, approve, and enable auto-merge
+        if: >-
+          steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-minor'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          # Require our actual PR workflow to pass for this exact head, even if
+          # the repository owner has not configured required checks yet.
+          for attempt in {1..100}; do
+            runs=$(gh api "repos/$GH_REPO/actions/workflows/ci.yml/runs?event=pull_request&head_sha=$HEAD_SHA&per_page=1")
+            status=$(jq -r '.workflow_runs[0].status // "pending"' <<< "$runs")
+            conclusion=$(jq -r '.workflow_runs[0].conclusion // "pending"' <<< "$runs")
+            if [ "$status" = completed ]; then
+              if [ "$conclusion" != success ]; then
+                echo "CI did not pass: $conclusion"
+                exit 1
+              fi
+              break
+            fi
+            if [ "$attempt" = 100 ]; then
+              echo "Timed out waiting for CI; leaving the PR for manual review."
+              exit 1
+            fi
+            sleep 10
+          done
+          gh api "repos/$GH_REPO/pulls/${PR_URL##*/}/reviews" \
+            -f event=APPROVE -f commit_id="$HEAD_SHA"
+          gh pr merge "$PR_URL" --auto --squash --match-head-commit "$HEAD_SHA"
