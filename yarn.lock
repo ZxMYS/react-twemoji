@@ -4542,8 +4542,8 @@ webpack-cli@^7.2.3:
     webpack-merge "^6.0.1"
 
 webpack-dev-middleware@^8.4.0:
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-8.4.0.tgz#9ef518db27950a7acd8eda1349769b3fee8ad9fb"
+  version "8.5.0"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-8.5.0.tgz#01e56fa808e0111973a80a05c6471fe9052ec659"
   dependencies:
     memfs "^4.68.2"
     mime-db "^1.54.0"
