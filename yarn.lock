@@ -4538,8 +4538,8 @@ webpack-sources@^3.6.0:
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.6.0.tgz#b2e4a4f1aef1a0d60f3011eb47736c5bf7f1ed7f"
 
 webpack@^5.104.1:
-  version "5.112.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.112.1.tgz#8838d62eef7a69e0e77617b22c6bf13ea58693ab"
+  version "5.112.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.112.2.tgz#6548b28310dc57d971aadb31a582c8aadb9ec880"
   dependencies:
     "@types/estree" "^1.0.8"
     "@types/json-schema" "^7.0.15"
